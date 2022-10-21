@@ -6,9 +6,9 @@ const Register = () => {
         <div className='auth'>
             <h1>Register</h1>
             <form>
-                <input type="text" placeholder='username' />
-                <input type="email" placeholder='username' />
-                <input type="password" placeholder='password' />
+                <input required type="text" placeholder='username' />
+                <input required type="email" placeholder='email' />
+                <input required type="password" placeholder='password' />
                 <button>Register</button>
                 <p>This is an error!</p>
                 <span>Do you have an account? <Link to="/login">Login</Link></span>
