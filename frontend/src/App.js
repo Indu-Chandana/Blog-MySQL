@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  Outlet,
 } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -14,7 +15,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <Home />
+      <Outlet />
       <Footer />
     </>
   )
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         path: "/write",
         element: <Home />
       }
-    ]
+    ],
   },
   {
     path: "/register",
