@@ -36,8 +36,8 @@ const Single = () => {
         </p>
       </div>
 
-<Menu/>
-      
+      <Menu />
+
     </div>
   )
 }
