@@ -191,14 +191,14 @@ $lightGreen: #b9e7e7;
                             border: 1px solid teal;
                             color: teal;
 
-                            &:hover{
+                            &:hover {
                                 border: 1px solid white;
                                 background-color: $lightGreen;
-                                color:  black;
+                                color: black;
                             }
                         }
 
-                        
+
                     }
                 }
             }
@@ -209,40 +209,41 @@ $lightGreen: #b9e7e7;
             display: flex;
             gap: 50px;
 
-            .content{
+            .content {
                 flex: 5;
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
 
-                img{
+                img {
                     width: 100%;
                     height: 300px;
                     object-fit: cover;
                 }
 
-                .user{
+                .user {
                     display: flex;
                     align-items: center;
                     gap: 10px;
                     font-size: 14px;
-                    img{
+
+                    img {
                         width: 50px;
                         height: 50px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
 
-                    span{
+                    span {
                         font-weight: bold;
                     }
                 }
 
-                .edit{
+                .edit {
                     display: flex;
                     gap: 5px;
 
-                    img{
+                    img {
                         width: 20px;
                         height: 20px;
                         cursor: pointer;
@@ -254,39 +255,40 @@ $lightGreen: #b9e7e7;
                     color: #333;
                 }
 
-                p{
+                p {
                     text-align: justify; // it ends in the same line.
                     line-height: 30px;
                 }
-                
+
             }
-            .menu{
+
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 25px;
 
-                h1{
+                h1 {
                     font-size: 20px;
                     color: #555;
                 }
 
-                .post{
+                .post {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
 
-                    img{
+                    img {
                         width: 100%;
                         height: 200px;
                         object-fit: cover;
                     }
 
-                    h2{
+                    h2 {
                         color: #555;
                     }
 
-                    button{
+                    button {
                         width: max-content;
                         padding: 7.5px 15px;
                         border: none;
@@ -307,28 +309,88 @@ $lightGreen: #b9e7e7;
 
         // WRITE
 
-        .add{
+        .add {
             margin-top: 20px;
             display: flex;
             gap: 20px;
 
-            .content{
+            .content {
                 flex: 5;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
 
-                input{
+                input {
                     padding: 10px;
                     border: 1px solid lightgray;
                 }
+
+                .editorContainer {
+                    height: 300px;
+                    // overflow: scroll;
+                    border: 1px solid lightgray;
+
+
+                    .editor {
+                        height: 100%;
+                        border: none;
+                    }
+                }
             }
 
-            .menu{
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
+
+                .item {
+                    border: 1px solid lightgray;
+                    padding: 10px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 12px;
+                    color: #555;
+
+                    h1 {
+                        font-size: 20px;
+                    }
+
+                    .file{
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    .buttons{
+                        display: flex;
+                        justify-content: space-between;
+
+                        :first-child{
+                            cursor: pointer;
+                            color: teal;
+                            background-color: white;
+                            border: 1px solid teal;
+                            padding: 3px 5px;
+                        }
+
+                        :last-child{
+                            cursor: pointer;
+                            color: white;
+                            background-color:teal;
+                            border: 1px solid teal;
+                            padding: 3px 5px;
+                        }
+                    }
+
+                    .cat{
+                        display: flex;
+                        align-items: center;
+                        gap: 2px;
+                        color: teal;
+                    }
+                }
             }
         }
 
