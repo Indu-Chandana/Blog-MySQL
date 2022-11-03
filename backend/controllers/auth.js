@@ -41,9 +41,13 @@ export const login = (req, res) => {
         if (!isPasswordCorrect) return res.status(400).json("Wrong username or password!")
         
         const token = jwt.sign({id:data[0].id}, "jwtkey");
-    })
 
-//
+        const { password, ...other} = data[0];
+
+        res.cookie("access_token", token, {
+            httpOnly:true    // extra security -> only API can access cookie 1:20:00
+        }).status(200).json(other)
+    })
 }
 
 export const logout = (req, res) => {
