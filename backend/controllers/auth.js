@@ -1,5 +1,6 @@
 import { db } from "../db.js"
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
 
@@ -38,6 +39,8 @@ export const login = (req, res) => {
         //CHECK password
         const isPasswordCorrect = bcrypt.compareSync(req.body.password, data[0].password); // trueorfalse data[0].password->server saved pw and req.body.password -> user FE typed pw
         if (!isPasswordCorrect) return res.status(400).json("Wrong username or password!")
+        
+        const token = jwt.sign({id:data[0].id}, "jwtkey");
     })
 
 //
