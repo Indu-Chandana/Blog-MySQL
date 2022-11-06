@@ -59,7 +59,7 @@ export const deletePost = (req, res) => {
             return res.json("Post has been deleted!")
         })
     })
-    
+    //
 }
 
 export const updatePost = (req, res) => {
