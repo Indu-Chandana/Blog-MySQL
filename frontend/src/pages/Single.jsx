@@ -70,7 +70,7 @@ const Single = () => {
         {post?.deac}
       </div>
 
-      <Menu />
+      <Menu cat={post?.cat}/>
 
     </div>
   )
