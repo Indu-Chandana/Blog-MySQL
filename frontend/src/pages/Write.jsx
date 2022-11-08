@@ -10,6 +10,8 @@ const Write = () => {
   const [cat, setCat] = useState('');
 
   const upload = async () => {
+    console.log('clicked1');
+
     try {
       const formData = new FormData();
       formData.append("file", file)
@@ -22,6 +24,7 @@ const Write = () => {
 
   const handleClick = async (e) => {
     e.preventDefault()
+    console.log('clicked');
     upload()
   }
 
