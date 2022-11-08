@@ -25,6 +25,7 @@ const Single = () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
         setPost(res.data)
+        console.log(res.data)
       } catch (error) {
         console.log(error)
       }

@@ -1,32 +1,49 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 
 const Menu = ({cat}) => {
-    const posts = [
-        {
-            id: 1,
-            title: "hello hello hello",
-            desc: "hello hello hello hello hello hello hello hello hello",
-            img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
-        },
-        {
-            id: 2,
-            title: "hello hello hello",
-            desc: "hello hello hello hello hello hello hello hello hello",
-            img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
-        },
-        {
-            id: 3,
-            title: "hello hello hello",
-            desc: "hello hello hello hello hello hello hello hello hello",
-            img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
-        },
-        {
-            id: 4,
-            title: "hello hello hello",
-            desc: "hello hello hello hello hello hello hello hello hello",
-            img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
-        },
-    ]
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(`/posts/?cat=${cat}`);
+                setPosts(res.data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [cat])
+    // const posts = [
+    //     {
+    //         id: 1,
+    //         title: "hello hello hello",
+    //         desc: "hello hello hello hello hello hello hello hello hello",
+    //         img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "hello hello hello",
+    //         desc: "hello hello hello hello hello hello hello hello hello",
+    //         img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "hello hello hello",
+    //         desc: "hello hello hello hello hello hello hello hello hello",
+    //         img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "hello hello hello",
+    //         desc: "hello hello hello hello hello hello hello hello hello",
+    //         img: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1280x720.png"
+    //     },
+    // ]
 
     return (
         <div className='menu'>
