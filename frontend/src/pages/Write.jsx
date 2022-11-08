@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -8,8 +9,20 @@ const Write = () => {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState('');
 
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file)
+      const res = await axios.post("/upload", formData)
+      console.log(res.data, file)
+    } catch (error) {
+      console.log('upload img', error)
+    }
+  }
+
   const handleClick = async (e) => {
     e.preventDefault()
+    upload()
   }
 
   return (
@@ -30,7 +43,7 @@ const Write = () => {
           <span>
             <b>Visibility: </b> Public
           </span>
-          <input style={{ display: "none" }} type="file" name='' id='file' onChange={e => setFile(e.target.value.file[0])} />
+          <input style={{ display: "none" }} type="file" name='' id='file' onChange={e => setFile(e.target.files[0])} />
           <label className='file' htmlFor="file">Upload Image</label>
           <div className="buttons">
             <button>Save as a draft</button>
