@@ -15,7 +15,7 @@ export const getPosts = (req, res) => {
 
 export const getPost = (req, res) => {
 
-    const q = "SELECT `username`, `title`, `desc`, p.img, u.img AS userImg, `cat`, `date` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ? "
+    const q = "SELECT p.id, `username`, `title`, `desc`, p.img, u.img AS userImg, `cat`, `date` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ? "
 
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err);
@@ -39,6 +39,23 @@ export const getPost = (req, res) => {
 } 
 
 export const addPost = (req, res) => {
+    const token = req.cookies.access_token;
+    if(!token) return res.status(401).json("Not authenticated!");
+
+    jwt.verify(token, "jwtkey", (err, userInfo) => {
+        if (err) return res.status.json("Token is not valid!");
+    })
+
+    const q = "INSET INTO posts(`title`, `desc`, `img`, `cat`, `date`, `uid`) VALUES (?)"
+
+    const Values = [
+        req.body.title,
+        req.body.desc,
+        req.body.img,
+        req.body.cat,
+        req.body.date,
+        userInfo.id
+    ]
     
 }
 
