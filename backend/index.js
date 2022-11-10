@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cookieParser())
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '../frontend/public/upload') // u have to create folder in '../frontend/public/upload'
+      cb(null, '../frontend/public/upload') // u have to create folder in '../frontend/public/upload' //
     },
     filename: function (req, file, cb) {
       cb(null, Date.now()+file.originalname)
